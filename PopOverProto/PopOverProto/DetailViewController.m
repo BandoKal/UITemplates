@@ -63,25 +63,13 @@
     // add it to the current view
     if (!menuLoaded)
     {
-        
-    
-    CGRect menuFrame = CGRectMake(0, 0, 85.0, self.view.frame.size.height);
-    menu = [[MenuTableView alloc]initWithFrame:menuFrame
-                                         style:UITableViewStylePlain];
-    menu.backgroundColor = [UIColor grayColor];
-    menu.rowHeight = 85.0;
-    
-    //    [UIView transitionWithView:mysuperview duration:0.75 options:UIViewAnimationTransitionFlipFromRight animations:^{ [myview removeFromSuperview]; } completion:nil]
-    
-    
-    [self.view addSubview:menu];
-    menuLoaded = YES;
+        menu = [[MenuTableView alloc]initWithParentViewController:self];
+        menuLoaded = YES;
     }
 }
 
 - (IBAction)swipeLeft:(id)sender
 {
-    NSLog(@"left");
     [menu removeFromSuperview];
     menuLoaded = NO;
 }
